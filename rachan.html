@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice</title>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lora:400,700|Montserrat:300,400,700'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation-flex.min.css'>
+    <!-- <link rel="stylesheet" href="./style.css"> -->
+
+    <style>
+        @font-face {
+            font-family: 'DB Helvethaica X v3.2';
+            src: url('https://cdn.jsdelivr.net/gh/valPsd/hb-font/DB-Helvethaica-X-v3.2.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            width: 8.27in;
+            height: 11.69in;
+            position: absolute;
+            top: 0%;
+            left: 10%;
+            font-family: "DB Helvethaica X v3.2", sans-serif !important;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        table.invoice {
+            background: #fff;
+        }
+
+        table.invoice .num {
+            font-weight: 200;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.8em;
+        }
+
+        table.invoice tr,
+        table.invoice td {
+            background: #fff;
+            text-align: left;
+            font-weight: 400;
+            color: #000000;
+        }
+
+        table.invoice tr.header td h2 {
+            text-align: center;
+            font-family: "DB Helvethaica X v3.2", sans-serif;
+            font-weight: 200;
+            font-size: 2rem;
+            color: #000000;
+        }
+
+        table.invoice tr.intro td:nth-child(2) {
+            text-align: right;
+        }
+
+        table.invoice tr.details>td {
+            padding-top: 1.5rem;
+            padding-bottom: 0;
+        }
+
+        table.invoice tr.details td.id,
+        table.invoice tr.details td.qty,
+        table.invoice tr.details td.sub,
+        table.invoice tr.details th.id,
+
+        table.invoice tr.details th.qty,
+        table.invoice tr.details th.sub {
+            text-align: center;
+        }
+
+        table.invoice tr.details td:last-child,
+        table.invoice tr.details th:last-child {
+            text-align: right;
+        }
+
+        table.invoice tr.details table thead,
+        table.invoice tr.details table tbody {
+            position: relative;
+        }
+
+        table.invoice tr.details table thead:after,
+        table.invoice tr.details table tbody:after {
+            content: "";
+            height: 1px;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            margin-top: -1px;
+            background: #000000;
+        }
+
+        th.desc {
+            width: 300px;
+        }
+
+        table.invoice tr.totals td {
+            padding-top: 0;
+        }
+
+        table.invoice tr.totals table tr td {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        table.invoice tr.totals table tr td:nth-child(1) {
+            font-weight: 500;
+        }
+
+        table.invoice tr.totals table tr td:nth-child(2) {
+            text-align: right;
+            font-weight: 200;
+        }
+
+        table.invoice tr.totals table tr:nth-last-child(2) td {
+            padding-bottom: 0.5em;
+        }
+
+        table.invoice tr.totals table tr:nth-last-child(2) td:last-child {
+            position: relative;
+        }
+
+        table.invoice tr.totals table tr:nth-last-child(2) td:last-child:after {
+            content: "";
+            height: 4px;
+            width: 100%;
+            border-top: 1px solid #000000;
+            border-bottom: 1px solid #000000;
+            position: relative;
+            right: 0;
+            top: 0px;
+            bottom: -0.575rem;
+            display: block;
+        }
+
+        table.invoice tr.totals table tr.total td {
+        font-size: 1.2em;
+        padding-top: 0.5em;
+        font-weight: 700;
+        }
+
+        table.invoice tr.totals table tr.total td:last-child {
+        font-weight: 700;
+        }
+
+        .additional-info h5 {
+            font-size: 0.8em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #000000;
+        }
+
+        .txt p {
+            text-align: center;
+        }
+
+        .header img {
+            width: 150px;
+            height: 150px;
+        }
+
+        hr {
+            border-top: 1px solid black;
+        }
+
+        .note h2 {
+            color: red;
+            font-size: medium;
+            text-align: center;
+        }
+
+        .align-right p {
+            text-align: center;
+        }
+
+        .tts {
+            font: 1.5em "DB Helvethaica X v3.2", sans-serif;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                width: 100%;
+                height: auto;
+                position: static;
+                top: auto;
+                left: auto;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row expanded">
+        <main class="columns">
+            <div class="inner-container">
+                <section class="row">
+                    <div class="large invoice-container">
+                        <table class="invoice">
+                            <tr class="header">
+                                <td class="">
+                                    <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/business-logo-design-template-78655edda18bc1196ab28760f1535baa_screen.jpg?ts=1617645324" />
+                                </td>
+                                <td class="align-right">
+                                    <br><br><br>
+                                    <h2>ใบเสนอราคา</h2>
+                                    <p>Quotation</p>
+                                    <hr style="
+              vertical-align: baseline;
+              width: auto;
+              border: none;
+              border-top: 1px solid black;
+              margin: 0;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <<[ชื่อ]>><br>
+                                    <<[ที่อยู่]>><br>
+                                    โทรศัพท์:<<[เบอร์โทร]>><br>
+									email:<<[E-mail]>><br>
+                                   	เลขประจำตัวผู้เสียภาษี:<<[เลขประจำตัวผู้เสียภาษี]>>
+                                </td>
+
+                                <td class="note">
+                                    <p>เลขที่ <<[เลขที่]>> <br>
+                                        วันที่ <<[วันที่]>></p>
+                                    <hr>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    ลูกค้า<br>
+                                    <<[ชื่อ]>><br>
+                                    <<[ที่อยู่]>><br>
+                                    โทรศัพท์:<<[เบอร์โทร]>><br>
+									email:<<[E-mail]>><br>
+                                   	เลขประจำตัวผู้เสียภาษี:<<[เลขประจำตัวผู้เสียภาษี]>>
+                                </td>
+
+                                <td class="note">
+                                    <h2>** Note **</h2>
+                                    <<[** Note **]>><br><br><br>
+                                    ใบเสนอราคานี้:<<[ใช้ใบเสนอราคานี้ได้ถึง]>>
+                                    <hr style=" 
+              vertical-align: baseline;
+              width: auto;
+              border: none;
+              border-top: 1px solid black;
+              margin: 0;">
+                                </td>
+                            </tr>
+
+                            <tr class="details">
+                                <td colspan="2">
+                                    <hr style="
+              vertical-align: baseline;
+              width: auto;
+              border: none;
+              border-top: 1px solid black;
+              margin: 0;">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="id">#</th>
+                                                <th class="desc">รายการ</th>
+                                                <th class="qty">จำนวน</th>
+                                                <th class="per">หน่วย</th>
+                                                <th class="sub">ราคา/หน่วย</th>
+                                                <th class="tot">ยอดรวม</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="item">
+                                                <td class="id num">1</td>
+                                                <td class="desc">vvvvv</td>
+                                                <td class="qty">1</td>
+                                                <td class="per">ชุด</td>
+                                                <td class="sub">1,590</td>
+                                                <td class="tot">1,590</td>
+                                            </tr>
+                                            <tr class="item">
+                                                <td class="id num">2</td>
+                                                <td class="desc">bbbbbb</td>
+                                                <td class="qty">1</td>
+                                                <td class="per">ชุด</td>
+                                                <td class="sub">1,890</td>
+                                                <td class="tot">1,890</td>
+                                            </tr>
+                                            <tr class="item">
+                                                <td class="id num">3</td>
+                                                <td class="desc">nnnnnn</td>
+                                                <td class="qty">1</td>
+                                                <td class="per">ชุด</td>
+                                                <td class="sub">1,890</td>
+                                                <td class="tot">1,890</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr class="totals">
+                                <td class="tts">
+                                    <br>
+                                    <p>
+                                        ห้าพันสามร้อยเจ็ดสิบบาทถ้วน
+                                    </p>
+                                </td>
+                                <td>
+                                    <table>
+                                        <tr class="subtotal">
+                                            <td class="sub">รวมเป็นเงิน</td>
+                                            <td class="sub">5,370 บาท</td>
+                                        </tr>
+                                        <tr class="fees">
+                                            <td class="sub">ส่วนลด %</td>
+                                            <td class="sub">0 บาท</td>
+                                        </tr>
+                                        <tr class="tax">
+                                            <td class="sub">รวมเป็นเงิน</td>
+                                            <td class="sub">5,370 บาท</td>
+                                        </tr>
+                                        <tr></tr>
+                                    </table>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    ข้าพเจ้าได้ตรวจสอบรายละเอียดครบถ้วนแล้ว<br>
+                                    จึงขอยืนยันสั่งซื้อ/สั่งจ้าง งานตามใบเสนอราคานี้
+                                </td>
+                            </tr>
+                        </table>
+
+                        <section class="additional-info">
+                            <div class="row">
+                                <div class="columns">
+                                    <div class="txt">
+                                        <hr style="width: 80%; margin-left: 10;">
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</span><br>
+                                        <p>ผู้มีอำนาจ สั่งซื้อ/สั่งจ้าง<br>
+                                            ลงวันที่ ________</p>
+                                    </div>
+                                </div>
+                                <div class="columns">
+                                    <div class="txt">
+                                        <hr style="width: 80%; margin-right: 10;">
+                                        <p>นาย. vvvvvvv<br>
+                                            ผู้เสนอราคา<br>
+                                            <<[วันที่]>>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
+
